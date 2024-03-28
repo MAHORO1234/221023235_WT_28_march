@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+
+<h2>Login Form</h2>
+
+<form id="loginForm">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <button type="button" onclick="addRow()">Login</button>
+</form>
+<script>
+    function redirect() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        
+        // Construct the URL with query parameters
+        var url = "mahoro page.html" + "?username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
+        
+        // Redirect the user to the new page
+        window.location.href = url;
+    }
+</script>
+
+<table id="loginTable" border="1">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody id="loginTableBody">
+    </tbody>
+</table>
+
+<script>
+    function addRow() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        var table = document.getElementById("loginTableBody");
+        var row = table.insertRow();
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = username;
+        cell2.innerHTML = password;
+    }
+</script>
+
+</body>
+</html>
